@@ -50,7 +50,7 @@ export default class LoginScreen extends React.Component<LoginScreenProps, Login
         <ScrollView style={{ flex: 1 }}>
           <LoginHeader>Welcome</LoginHeader>
           <LoginText>Username</LoginText>
-          <LoginInput
+          <LoginInput style={{top: "46%"}}
             autoCapitalize="none"
             onChangeText={(text): void =>
               this.setState({
@@ -65,7 +65,7 @@ export default class LoginScreen extends React.Component<LoginScreenProps, Login
           <ImageContainer>
             <LoginImg source={require('@assets/imgs/colored_icon.png')} resizeMode="center" />
           </ImageContainer>
-          <LoginText>Password</LoginText>
+          <LoginText style={{top: "-1%"}} >Password</LoginText>
           <LoginInput
             secureTextEntry
             onChangeText={(text): void =>
