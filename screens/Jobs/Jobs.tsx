@@ -99,6 +99,10 @@ export class JobsScreen extends React.Component<JobsScreenProps, JobsScreenState
 
   /**
    * TODO: Write filterJobs function that updates the components' state with jobs that align with the users' weekly schedule.
+   
+   SIDE NOTE: I was unable to finish this function before the submission deadline. 
+   I was able to complete the first task properly, but had difficulty in regards to solving this problem.
+   
    */
   filterJobs = (jobs: JobRecord[], availability: Availability): void => {
     // Step 0: Clone the jobs input
@@ -106,6 +110,34 @@ export class JobsScreen extends React.Component<JobsScreenProps, JobsScreenState
     console.log(newJobs, availability);
 
     // Step 1: Remove jobs where the schedule doesn't align with the users' availability.
+
+    // iterating through jobs which is an object, iterate various times because the object array is nested
+
+    for(var i = 0; i < newJobs.length; i++){
+
+      // take the array element as an object
+      var element = newJobs[i];
+  
+      // iterate to all the properties of that object
+      for (var property in element) {
+        //add the property to a variable in order to be able to check if it equals wed or thurs
+            var object_name = element[property][i];
+          // check if object is either wednesday or thursday
+            if(object_name == "Wednesday" || object_name == "Thursday"){
+
+              // This should push the property aka the name of the coffee storeg
+             newJobs.push(property);
+
+            }
+
+        }
+      }
+  }
+
+
+
+
+    }
 
     // Step 2: Save into state
     this.setState({ jobs: newJobs });
